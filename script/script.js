@@ -100,6 +100,9 @@ let cardsChosenIds = [];
 let cardsWon = [];
 const resultDisplay = document.querySelector('#score-span');
 resultDisplay.textContent = cardsWon.length;
+const movesDisplay = document.querySelector('#moves-span');
+let moves = 0;
+movesDisplay.textContent = moves;
 
 function createBoard() {
     for (i=0; i<cardArray.length;i++){
@@ -135,6 +138,7 @@ function checkMatch(){
         alert('you clicked the same image');
         cards[option1Id].setAttribute('src',blankURL);
         cardsChosen[1] = -1; //No hay ningún elemento -1, entonces garantizo que no entre al próximo if
+        moves++
     }
     else {
         if(cardsChosen[0] === cardsChosen[1]){
@@ -151,11 +155,13 @@ function checkMatch(){
             cards[option2Id].setAttribute('src',blankURL);
             alert('Try again');
         }
+        moves++
     }
 
     resultDisplay.textContent = cardsWon.length;
     cardsChosen = [];
     cardsChosenIds = [];
+    movesDisplay.textContent = moves;
 
     if (cardsWon.length == cardArray.length/2){
         resultDisplay.textContent = 'Congratulations';
