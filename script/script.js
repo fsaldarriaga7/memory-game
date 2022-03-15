@@ -142,7 +142,7 @@ function checkMatch(){
     }
     else {
         if(cardsChosen[0] === cardsChosen[1]){
-            alert('Match!');
+            //alert('Match!');
             cards[option1Id].setAttribute('src',whiteURL);
             cards[option2Id].setAttribute('src',whiteURL);
             cards[option1Id].removeEventListener('click', flipCard);
@@ -153,7 +153,7 @@ function checkMatch(){
         else {
             cards[option1Id].setAttribute('src',blankURL);
             cards[option2Id].setAttribute('src',blankURL);
-            alert('Try again');
+            //alert('Try again');
         }
         moves++
     }
